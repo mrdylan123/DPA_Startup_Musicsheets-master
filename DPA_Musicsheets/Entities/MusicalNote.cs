@@ -9,12 +9,14 @@ namespace DPA_Musicsheets.Entities
 {
     public class MusicalNote
     {
-        char Pitch { get; set; }
+        public char Pitch { get; set; }
         //int NumberofDots { get; set; }
-        int Duration { get; set; } // De duur van een noot
+        public int Duration { get; set; } // De duur van een noot
 
-        Boolean hasCross { get; set; } // C => C#
-        Boolean hasMinor { get; set; } // C => Cb
-        Boolean hasPoint { get; set; } // true => helft langer in duur
+        public Boolean hasCross { get; set; } // C => C#
+        public Boolean hasMinor { get; set; } // C => Cb
+        public Boolean hasPoint { get; set; } // true => helft langer in duur
+
+        public MusicalNote() { }
     }
 }

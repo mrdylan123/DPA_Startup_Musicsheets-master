@@ -358,6 +358,7 @@ namespace DPA_Musicsheets.Managers
                 switch (musicalSymbol.Type)
                 {
                     case MusicalSymbolType.Note:
+                        // MusicalNote note = new MusicalNote();
                         Note note = musicalSymbol as Note;
 
                         // Calculate duration
