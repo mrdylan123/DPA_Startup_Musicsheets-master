@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DPA_Musicsheets.Entities
+﻿namespace DPA_Musicsheets.Entities
 {
-    public class TimeSignature
+    public class TimeSignature : MusicalSymbol
     {
-        int Count { get; set; } // Tellen in een maat
-        SymbolDuration Duration { get; set; } // Welke nootsoort is 1 tel
+        public uint BeatsPerBar { get; set; }
+        public uint BeatUnit { get; set; }
+
+        public TimeSignature(uint beatUnit, uint beatsPerBar)
+        {
+            BeatsPerBar = beatsPerBar;
+            BeatUnit = beatUnit;
+        }
     }
 }

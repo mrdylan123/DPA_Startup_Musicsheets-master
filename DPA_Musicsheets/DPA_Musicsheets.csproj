@@ -103,24 +103,76 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Abstract Factory - Midi\AbstractFactory.cs" />
-    <Compile Include="Abstract Factory - Midi\MetaFactory.cs" />
-    <Compile Include="Abstract Factory - Midi\MidiFactory.cs" />
-    <Compile Include="Entities\Bar.cs" />
-    <Compile Include="Entities\MusicalNote.cs" />
-    <Compile Include="Entities\MusicalRest.cs" />
-    <Compile Include="Entities\SymbolDuration.cs" />
+    <Compile Include="Command Pattern\Commands\AddCleffCommand.cs" />
+    <Compile Include="Command Pattern\Commands\AddTempoCommand.cs" />
+    <Compile Include="Command Pattern\Commands\AddTimeCommand.cs" />
+    <Compile Include="Command Pattern\Commands\EditorCommand.cs" />
+    <Compile Include="Command Pattern\Commands\LilyEditorCommand.cs" />
+    <Compile Include="Command Pattern\Commands\OpenFileCommand.cs" />
+    <Compile Include="Command Pattern\Commands\SaveAsLilyCommand.cs" />
+    <Compile Include="Command Pattern\Commands\SaveAsPdfCommand.cs" />
+    <Compile Include="Command Pattern\KeyHandlers\CommandKeyHandler.cs" />
+    <Compile Include="Command Pattern\KeyHandlers\KeyHandler.cs" />
+    <Compile Include="Command Pattern\KeyHandlers\RegularKeyHandler.cs" />
+    <Compile Include="Editor State\Changed.cs" />
+    <Compile Include="Editor State\EditorState.cs" />
+    <Compile Include="Editor State\Rendering.cs" />
+    <Compile Include="Editor State\Saved.cs" />
+    <Compile Include="Entities\Barline.cs" />
+    <Compile Include="Entities\Clef.cs" />
+    <Compile Include="Entities\ClefType.cs" />
+    <Compile Include="Entities\Cross.cs" />
+    <Compile Include="Entities\Dot.cs" />
+    <Compile Include="Entities\Mole.cs" />
+    <Compile Include="Entities\MusicalSequence.cs" />
+    <Compile Include="Entities\MusicalSymbol.cs" />
+    <Compile Include="Entities\MusicalSymbolDuration.cs" />
+    <Compile Include="Entities\Note.cs" />
+    <Compile Include="Entities\NoteDecoration.cs" />
+    <Compile Include="Entities\NoteTieType.cs" />
+    <Compile Include="Entities\RepeatType.cs" />
+    <Compile Include="Entities\Rest.cs" />
     <Compile Include="Entities\TimeSignature.cs" />
-    <Compile Include="Managers\MidiEventHandler.cs" />
-    <Compile Include="Managers\MidiLoader.cs" />
+    <Compile Include="IO\BarLineEvent.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\AlternativeExpression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\AlternativeGroupExpression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\BarlineExpression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\ClefExpression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\Expression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\LilypondContext.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\LilypondSection.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\NoteExpression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\RelativeExpression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\RepeatExpression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\TempoExpression.cs" />
+    <Compile Include="IO\Lilypond\Interpreter\TimeSignatureExpression.cs" />
+    <Compile Include="IO\Lilypond\LilypondSequenceReader.cs" />
+    <Compile Include="IO\Midi\MidiBarLineEvent.cs" />
+    <Compile Include="IO\Midi\MidiNoteEvent.cs" />
+    <Compile Include="IO\Midi\MidiSequenceReader.cs" />
+    <Compile Include="IO\Midi\MidiTempoEvent.cs" />
+    <Compile Include="IO\Midi\MidiTimeSignatureEvent.cs" />
+    <Compile Include="IO\NoteEvent.cs" />
+    <Compile Include="IO\RepeatEvent.cs" />
+    <Compile Include="IO\SectionEndEvent.cs" />
+    <Compile Include="IO\SectionStartEvent.cs" />
+    <Compile Include="IO\SequenceReader.cs" />
+    <Compile Include="IO\TempoEvent.cs" />
+    <Compile Include="IO\TimeSignatureEvent.cs" />
     <Compile Include="Managers\MidiToLilyHelper.cs" />
     <Compile Include="Managers\MusicLoader.cs" />
-    <Compile Include="Managers\PDFSaver.cs" />
-    <Compile Include="Managers\TrackHandler.cs" />
+    <Compile Include="Managers\PSAMStaffBuilder.cs" />
+    <Compile Include="Managers\StaffBuilder.cs" />
+    <Compile Include="Managers\StaffLoader.cs" />
+    <Compile Include="Memento Pattern\LilypondMemento.cs" />
+    <Compile Include="Memento Pattern\LilypondOriginator.cs" />
     <Compile Include="Models\LilypondToken.cs" />
     <Compile Include="Models\LilypondTokenKind.cs" />
+    <Compile Include="ViewModels\LilypondViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MidiPlayerViewModel.cs" />
     <Compile Include="ViewModels\StaffsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\MidiPlayerCtrl.xaml.cs">
       <DependentUpon>MidiPlayerCtrl.xaml</DependentUpon>
     </Compile>
@@ -130,9 +182,6 @@
     <Compile Include="Views\LilypondViewerCtrl.xaml.cs">
       <DependentUpon>LilypondViewerCtrl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\LilypondViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Page Include="Views\MidiPlayerCtrl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +228,7 @@
     <None Include="ClassDiagrams\CD_DPA_Musicsheets.cd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="ClassDiagrams\Class Diagram.cd" />
     <None Include="Files\Eenvoudige voorbeeldfiles\Doorklinken.pdf" />
     <None Include="Files\Eenvoudige voorbeeldfiles\Keywords.pdf" />
     <None Include="Files\Eenvoudige voorbeeldfiles\Maatwissel.pdf" />
@@ -239,6 +289,7 @@
     <Content Include="Files\Eenvoudige voorbeeldfiles\Rusten.ly" />
     <Content Include="Files\Eenvoudige voorbeeldfiles\Standaard_noten.ly" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
